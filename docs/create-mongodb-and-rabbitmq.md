@@ -1,5 +1,33 @@
 # Create MongoDB and RabbitMQ in Azure
 
+## Prep the dev environment
+
+Prep the dev environment by populating environment variables in 
+piggymetrics/.scripts/setup-env-variables-azure.sh
+bash script:
+
+```bash
+# ====== Piggy Metrics Azure Coordinates
+export RESOURCE_GROUP=INSERT-your-resource-group-name
+export REGION=eastus
+export SPRING_CLOUD_SERVICE=INSERT-your-spring-cloud-service-name
+
+## ===== Mongo DB
+export MONGODB_DATABASE=INSERT-your-mongodb-database-name
+export MONGODB_USER=INSERT-your-cosmosdb-account-name
+
+## ===== Rabbit MQ
+export RABBITMQ_RESOURCE_GROUP=INSERT-your-rabbitmq-resource-group-name
+export VM_NAME=INSERT-your-rabbitmq-virtual-machine-name
+export ADMIN_USERNAME=INSERT-your-rabbitmq-admin-user-name
+
+# # Then export them to the environment from the azure-spring-cloud/piggymetrics directory
+pwd
+/Users/selvasingh/GitHub/selvasingh/azure-spring-cloud/piggymetrics
+
+source .scripts/setup-env-variables-azure.sh
+```
+
 ## Create MongoDB
 Create an instance of MongoDB:
 ```bash
@@ -17,7 +45,15 @@ az group create --name ${RESOURCE_GROUP} \
 az cosmosdb create --kind MongoDB \
     --resource-group ${RESOURCE_GROUP} \
     --name ${MONGODB_USER}
-  
+```
+Cut and paste the resource 'id' value from Azure CLI response into setup-env-variables-development.sh and 
+setup-env-variables-azure.sh, say for example:
+
+```bash
+"id": "/subscriptions/685ba005-af8d-4b04-8f16-a7bf38b2eb5a/resourceGroups/spring-cloud-0918/providers/Microsoft.DocumentDB/databaseAccounts/ ...
+```
+
+```bash
 # Get Cosmos DB connection strings  
 az cosmosdb list-connection-strings --resource-group ${RESOURCE_GROUP} \
     --name ${MONGODB_USER} 
@@ -90,5 +126,37 @@ open http://${RABBITMQ_HOST}:15672
 ```
 
 ![](../media/rabbitmq-admin-console.jpg)
+
+## Re-prep the local dev environment
+
+Re-prep the dev environment by populating environment variables in 
+piggymetrics/.scripts/setup-env-variables-azure.sh and
+piggymetrics/.scripts/setup-env-variables-development.sh
+bash scripts:
+
+```bash
+# ====== Piggy Metrics Azure Coordinates
+export RESOURCE_GROUP=INSERT-your-resource-group-name
+export REGION=eastus
+export SPRING_CLOUD_SERVICE=INSERT-your-spring-cloud-service-name
+
+## ===== Mongo DB
+export MONGODB_DATABASE=INSERT-your-mongodb-database-name
+export MONGODB_USER=INSERT-your-cosmosdb-account-name
+export MONGODB_URI="INSERT-your-mongodb-connection-string"
+export MONGODB_RESOURCE_ID=INSERT-your-mongodb-resource-id
+
+## ===== Rabbit MQ
+export RABBITMQ_RESOURCE_GROUP=INSERT-your-rabbitmq-resource-group-name
+export VM_NAME=INSERT-your-rabbitmq-virtual-machine-name
+export ADMIN_USERNAME=INSERT-your-rabbitmq-admin-user-name
+
+# Rabbit MQ
+export RABBITMQ_HOST=INSERT-your-rabbitmq-host-public-ip-address
+export RABBITMQ_PORT=5672
+export RABBITMQ_USERNAME=INSERT-your-rabbitmq-username
+export RABBITMQ_PASSWORD=INSERT-your-rabbitmq-password
+
+```
 
 Go back to the main [README](../README.md)

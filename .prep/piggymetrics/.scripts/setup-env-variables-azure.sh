@@ -32,9 +32,9 @@ export MONGODB_URI="INSERT-your-mongodb-connection-string"
 export MONGODB_RESOURCE_ID=INSERT-your-mongodb-resource-id
 
 ## ===== Rabbit MQ
-export RABBITMQ_RESOURCE_GROUP=rabbitmq
-export VM_NAME=rabbitmq
-export ADMIN_USERNAME=selvasingh
+export RABBITMQ_RESOURCE_GROUP=INSERT-your-rabbitmq-resource-group-name
+export VM_NAME=INSERT-your-rabbitmq-virtual-machine-name
+export ADMIN_USERNAME=INSERT-your-rabbitmq-admin-user-name
 
 # Rabbit MQ
 export RABBITMQ_HOST=INSERT-your-rabbitmq-host-public-ip-address

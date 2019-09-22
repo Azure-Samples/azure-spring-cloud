@@ -104,6 +104,39 @@ az extension add -y \
 
 ### Create Azure Spring Cloud
 
+Prep the dev environment by populating environment variables in piggymetrics/.scripts/setup-env-variables-azure.sh
+bash script:
+
+```bash
+# ====== Piggy Metrics Azure Coordinates
+export RESOURCE_GROUP=INSERT-your-resource-group-name
+export REGION=eastus
+export SPRING_CLOUD_SERVICE=INSERT-your-spring-cloud-service-name
+
+## ===== Mongo DB
+export MONGODB_DATABASE=INSERT-your-mongodb-database-name
+export MONGODB_USER=INSERT-your-cosmosdb-account-name
+export MONGODB_URI="INSERT-your-mongodb-connection-string"
+export MONGODB_RESOURCE_ID=INSERT-your-mongodb-resource-id
+
+## ===== Rabbit MQ
+export RABBITMQ_RESOURCE_GROUP=INSERT-your-rabbitmq-resource-group-name
+export VM_NAME=INSERT-your-rabbitmq-virtual-machine-name
+export ADMIN_USERNAME=INSERT-your-rabbitmq-admin-user-name
+
+# Rabbit MQ
+export RABBITMQ_HOST=INSERT-your-rabbitmq-host-public-ip-address
+export RABBITMQ_PORT=5672
+export RABBITMQ_USERNAME=INSERT-your-rabbitmq-username
+export RABBITMQ_PASSWORD=INSERT-your-rabbitmq-password
+
+# Then export them to the environment from the azure-spring-cloud/piggymetrics directory
+pwd
+/Users/selvasingh/GitHub/selvasingh/azure-spring-cloud/piggymetrics
+
+source .scripts/setup-env-variables-azure.sh
+```
+
 Create an Azure Spring Cloud service instance using Azure CLI:
 ```bash
 # Create
