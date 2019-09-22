@@ -4,5 +4,5 @@ spring:
       server:
         git:
           uri: https://github.com/microsoft/piggymetrics-config.git
-          username: your-github-user-name
-          password: your-github-personal-token-with-access-to-private-repos
+          username: INSERT-your-github-user-name
+          password: INSERT-your-github-personal-token-with-access-to-private-repos
