@@ -68,6 +68,8 @@ and start:
 
 ![](../media/create-rabbitmq-on-azure-0.jpg)
 
+![](../media/create-rabbitmq-on-azure-1.jpg)
+
 ![](../media/create-rabbitmq-on-azure-1-b.jpg)
 
 ![](../media/create-rabbitmq-on-azure-2.jpg)
