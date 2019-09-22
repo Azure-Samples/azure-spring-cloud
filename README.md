@@ -87,7 +87,7 @@ and setup-env-variables-azure.sh.
 ## Run Piggymetrics locally
 
 You can use multiple console terminals and start micro service apps - see 
-[how to run Piggymetrics locally](./notes/Run-Piggymetrics-Locally.md) ...
+[how to run Piggymetrics locally](./docs/run-piggymetrics-locally.md) ...
 
 ## Create Azure Spring Cloud
 
