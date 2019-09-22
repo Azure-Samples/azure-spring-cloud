@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/microsoft/piggymetrics-config.git
+          username: INSERT-your-github-user-name
+          password: INSERT-your-github-personal-token-with-access-to-private-repos

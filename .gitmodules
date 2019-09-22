@@ -1,0 +1,3 @@
+[submodule "piggymetrics"]
+	path = piggymetrics
+	url = https://github.com/sqshq/piggymetrics.git
