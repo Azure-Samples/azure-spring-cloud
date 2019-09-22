@@ -68,6 +68,7 @@ In addition, you will need the following:
 Clone this GitHub repo and prep:
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/azure-spring-cloud.git
+cd azure-spring-cloud
 yes | cp -rf .prep/* .
 ```
 
@@ -75,6 +76,7 @@ yes | cp -rf .prep/* .
 
 Build Piggymetrics:
 ```bash
+cd piggymetrics
 mvn package -DskipTests
 ```
 
