@@ -4,6 +4,7 @@ spring:
   cloud:
     config:
       uri: ${CONFIG_SERVER_URI}
+      enabled: false
 
 ---
 
@@ -14,3 +15,4 @@ spring:
       fail-fast: true
       password: ${CONFIG_SERVICE_PASSWORD}
       username: user
+      enabled: true
