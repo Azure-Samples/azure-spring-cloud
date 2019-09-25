@@ -87,8 +87,9 @@ mvn package -DskipTests
 ## Create MongoDB and RabbitMQ
 
 You can create MongoDB and RabbitMQ on Azure by following steps outlined [here](./docs/create-mongodb-and-rabbitmq.md)
-and capture MongoDB and RabbitMQ coordinates and credentials in setup-env-variables-development.sh 
-and setup-env-variables-azure.sh. 
+and capture MongoDB and RabbitMQ coordinates and credentials in 
+`setup-env-variables-development.sh` 
+and `setup-env-variables-azure.sh`. 
 
 ## Run Piggymetrics locally
 
@@ -110,7 +111,8 @@ az extension add -y \
 
 ### Create Azure Spring Cloud
 
-Prep the dev environment by populating environment variables in piggymetrics/.scripts/setup-env-variables-azure.sh
+Prep the dev environment by populating environment variables in 
+`piggymetrics/.scripts/setup-env-variables-azure.sh`
 bash script:
 
 ```bash
@@ -170,7 +172,8 @@ az configure --defaults \
 
 Right now, the Piggymetrics config repo is a private repo in the Microsoft GitHub Organization. 
 To allow the Config Server in Azure Spring Cloud service, you have to provide a GitHub user 
-name and personal access token in the azure-spring-cloud/piggymetrics/application.yml file.
+name and personal access token in the 
+`azure-spring-cloud/piggymetrics/application.yml` file.
 
 ```yaml
 # Contents of application.yml
@@ -183,6 +186,9 @@ spring:
           username: INSERT-your-github-user-name
           password: INSERT-your-github-personal-token-with-access-to-private-repos
 ```
+
+You can get a personal token by going to `http://github.com/` and selecting
+your profile icon `==>` Settings `==>` Developer settings `==>` Personal access tokens.
 
 You can load config from a GitHub repo:
 ```bash
@@ -279,7 +285,7 @@ az spring-cloud app deploy --name auth-service \
           MONGODB_URI=${MONGODB_URI}
 ```
 
-Open the Piggymetrics landing page by using the 'gateway' app public uri, 
+Open the Piggymetrics landing page by using the `gateway` app public uri, 
 for example: 
 
 ![](./media/piggy-metrics-first-page.jpg)
@@ -422,7 +428,7 @@ az spring-cloud app set-deployment \
     --name gateway
 ```
 
-Open the Piggymetrics landing page by using the 'gateway' app public uri, you should now see the new icon 
+Open the Piggymetrics landing page by using the `gateway` app public uri, you should now see the new icon 
 for example:
 ![](./media/green-deployment.jpg)
 
