@@ -68,12 +68,18 @@ and start:
 
 ![](../media/create-rabbitmq-on-azure-0.jpg)
 
+Fill in the form, use the same value as ${RABBITMQ_RESOURCE_GROUP}, 
+${VM_NAME} and ${ADMIN_USERNAME}, and choose SSH. Select 'Standard DS3 v2' as 
+the size:
 ![](../media/create-rabbitmq-on-azure-1.jpg)
 
+Accept defaults:
 ![](../media/create-rabbitmq-on-azure-1-b.jpg)
 
+Accept defaults:
 ![](../media/create-rabbitmq-on-azure-2.jpg)
 
+Accept defaults in all subsequent screens, and proceed to create:
 ![](../media/create-rabbitmq-on-azure-3.jpg)
 
 ![](../media/create-rabbitmq-on-azure-4.jpg)
@@ -88,10 +94,14 @@ az vm open-port --port 15672 --name ${VM_NAME} \
 ```
 
 Find the public IP address of the Linux virtual machine where RabbitMQ is running and 
-open an SSH connection:
+and set the RABBITMQ_HOST environment variable in 
+piggymetrics/.scripts/setup-env-variables-azure.sh
 
 ```bash
 # Open an SSH connection, say
+# First, export the environment variables
+source .scripts/setup-env-variables-azure.sh
+# Open an SSH connection
 ssh selvasingh@${RABBITMQ_HOST}
 ``` 
 
@@ -118,7 +128,25 @@ sudo /opt/bitnami/ctlscript.sh start
 ```
 
 You can get your RabbitMQ admin credentials by following the steps in
-[https://docs.bitnami.com/azure/faq/get-started/find-credentials/](https://docs.bitnami.com/azure/faq/get-started/find-credentials/)
+[https://docs.bitnami.com/azure/faq/get-started/find-credentials/](https://docs.bitnami.com/azure/faq/get-started/find-credentials/).
+Particularly, open a file in the SSH terminal
+
+```bash
+cat ./bitnami_credentials
+```
+
+From the `bitnami_credentials` file, populate the credentials in 
+the `piggymetrics/.scripts/setup-env-variables-azure.sh` file
+and export them to the environment:
+```bash
+# Rabbit MQ
+export RABBITMQ_USERNAME=INSERT-your-rabbitmq-username
+export RABBITMQ_PASSWORD=INSERT-your-rabbitmq-password
+
+# export them
+source .scripts/setup-env-variables-azure.sh
+```
+
 
 You should be able to reach the RabbitMQ admin console at:
 ```bash
