@@ -316,7 +316,8 @@ the Azure Portal, see:
 ## Troubleshooting micro service apps in Azure Spring Cloud
 
 ### Debug in development machine
-You can run Spring Cloud Config, Eureka, Gateway and other Spring Cloud components on their dev machine. 
+You can run Spring Cloud Config, Spring Cloud Service Registry, 
+Spring Cloud Gateway and other Spring Cloud components on their dev machine. 
 You can attach debuggers to Spring Cloud micro service apps and step through them. You can 
 look at logs and metrics. Use Java Flight Recorder, etc.
 
