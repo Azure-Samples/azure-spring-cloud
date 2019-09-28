@@ -59,15 +59,27 @@
 
 		<profile>
 			<id>dev</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>development</value>
+				</property>
+			</activation>
 
-			<dependencies></dependencies>
+			<!--<dependencies></dependencies>-->
 		</profile>
 
 		<profile>
 			<id>cloud</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>env</name>
+					<value>cloud</value>
+				</property>
 			</activation>
+			<!--<activation>-->
+				<!--<activeByDefault>true</activeByDefault>-->
+			<!--</activation>-->
 			<dependencies>
 				<dependency>
 					<groupId>org.springframework.cloud</groupId>

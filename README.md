@@ -229,11 +229,14 @@ reaching the Piggymetrics app, for example, see the value of "url" below:
 az spring-cloud app create --name account-service --instance-count 1
 az spring-cloud app create --name auth-service --instance-count 1
 ```
+<!--
+az spring-cloud app create --name statistics-service --instance-count 1
+az spring-cloud app create --name notification-service --instance-count 1-->
 
 ### Deploy Spring Cloud micro service apps
 Build Spring Cloud micro service apps for cloud:
 ```bash
-mvn clean package -DskipTests -P cloud
+mvn clean package -DskipTests -Denv=cloud
 ...
 ...
 [INFO] --- spring-boot-maven-plugin:2.1.7.RELEASE:repackage (repackage) @ turbine-stream-service ---
@@ -285,6 +288,27 @@ az spring-cloud app deploy --name auth-service \
           MONGODB_URI=${MONGODB_URI}
 ```
 
+<!--
+# Deploy statistics-service app
+az spring-cloud app deploy --name statistics-service \
+    --jar-path ${STATISTICS_SERVICE_JAR} \
+    --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI} MONGODB_DATABASE=${MONGODB_DATABASE} \
+          MONGODB_URI=${MONGODB_URI} \
+          RABBITMQ_HOST=${RABBITMQ_HOST} \
+          RABBITMQ_PORT=${RABBITMQ_PORT} \
+          RABBITMQ_USERNAME=${RABBITMQ_USERNAME} \
+          RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
+
+az spring-cloud app deploy --name notification-service \
+    --jar-path ${NOTIFICATION_SERVICE_JAR} \
+    --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI} MONGODB_DATABASE=${MONGODB_DATABASE} \
+          MONGODB_URI=${MONGODB_URI} \
+          RABBITMQ_HOST=${RABBITMQ_HOST} \
+          RABBITMQ_PORT=${RABBITMQ_PORT} \
+          RABBITMQ_USERNAME=${RABBITMQ_USERNAME} \
+          RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
+-->
+
 Open the Piggymetrics landing page by using the `gateway` app public uri, 
 for example: 
 
@@ -324,7 +348,7 @@ look at logs and metrics. Use Java Flight Recorder, etc.
 ### Stream logs from micro service apps in cloud to development machines
 Soon, you will be able to stream logs from an app to your development machine using Azure CLI, like:
 ```bash
-$ az asc app logs --name ${APP_NAME}
+$ az spring-cloud app logs --name ${APP_NAME}
 ```
 
 ### Use aggregated logs and metrics in Azure Log Analytics
@@ -407,7 +431,7 @@ mv userpic-new.jpg userpic.jpg
 cd ../../../../../..
 
 # Rebuild for the cloud in the project directory
-mvn clean package -DskipTests -P cloud
+mvn clean package -DskipTests -Denv=cloud
 ```
 
 ### Create a green deployment
