@@ -1,5 +1,7 @@
 # Create MongoDB and RabbitMQ in Azure
 
+This guide will walk you through HOW to create MongoDB and RabbitMQ in Azure.
+
 ## Prep the dev environment
 
 Prep the dev environment by populating environment variables in 

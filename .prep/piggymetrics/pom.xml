@@ -45,14 +45,21 @@
 
 		<profile>
 			<id>dev</id>
-
-			<dependencies></dependencies>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>development</value>
+				</property>
+			</activation>
 		</profile>
 
 		<profile>
 			<id>cloud</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>env</name>
+					<value>cloud</value>
+				</property>
 			</activation>
 			<dependencies>
 				<dependency>
