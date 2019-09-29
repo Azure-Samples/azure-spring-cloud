@@ -22,8 +22,12 @@ export MONGODB_USER=INSERT-your-cosmosdb-account-name
 export RABBITMQ_RESOURCE_GROUP=INSERT-your-rabbitmq-resource-group-name
 export VM_NAME=INSERT-your-rabbitmq-virtual-machine-name
 export ADMIN_USERNAME=INSERT-your-rabbitmq-admin-user-name
+```
 
-# # Then export them to the environment from the azure-spring-cloud/piggymetrics directory
+Then export these environment variables from the 
+`azure-spring-cloud/piggymetrics' directory:
+
+```bash
 pwd
 /Users/selvasingh/GitHub/selvasingh/azure-spring-cloud/piggymetrics
 
@@ -191,4 +195,4 @@ export RABBITMQ_PASSWORD=INSERT-your-rabbitmq-password
 
 ```
 
-Go back to the main [README](../README.md)
+Go back to [how to use the Azure Spring Cloud service end to end?](https://github.com/azure-samples/azure-spring-cloud)
