@@ -63,6 +63,10 @@ In addition, you will need the following:
 | [Git](https://github.com/) 
 | 
 
+If you have not yet signed up for the Azure Spring Cloud private 
+preview, please sign up by providing your contact details at:
+[https://aka.ms/spring-cloud](https://aka.ms/spring-cloud).
+
 ## IMPORTANT - Start Here
 
 Clone this GitHub repo and prep:
@@ -81,7 +85,7 @@ Build Piggymetrics:
 
 cd piggymetrics
 
-mvn package -DskipTests
+mvn clean package -DskipTests -Denv=development
 ```
 
 ## Create MongoDB and RabbitMQ
@@ -137,8 +141,12 @@ export RABBITMQ_HOST=INSERT-your-rabbitmq-host-public-ip-address
 export RABBITMQ_PORT=5672
 export RABBITMQ_USERNAME=INSERT-your-rabbitmq-username
 export RABBITMQ_PASSWORD=INSERT-your-rabbitmq-password
+```
 
-# Then export them to the environment from the azure-spring-cloud/piggymetrics directory
+Then, export these environment variables from the `
+azure-spring-cloud/piggymetrics` directory:
+
+```bash
 pwd
 /Users/selvasingh/GitHub/selvasingh/azure-spring-cloud/piggymetrics
 
@@ -189,6 +197,8 @@ spring:
 
 You can get a personal token by going to `http://github.com/` and selecting
 your profile icon `==>` Settings `==>` Developer settings `==>` Personal access tokens.
+
+![](./media/generate-personal-access-token.jpg)
 
 You can load config from a GitHub repo:
 ```bash
@@ -353,19 +363,17 @@ $ az spring-cloud app logs --name ${APP_NAME}
 
 ### Use aggregated logs and metrics in Azure Log Analytics
 
-You can aggregate logs in Azure Log Analytics and retrieve them using Kusto queries.
-
-Create a Log Analytics Workspace:
-![](./media/create-log-analytics-workspace-01.jpg)
-
-![](./media/create-log-analytics-workspace-02.jpg)
+You can aggregate logs in Azure Log Analytics and retrieve them 
+using Kusto queries. If you do not have a Log Analytics Workspace in Azure, 
+see [how to create a Log Analytics Workspace](./docs/create-log-analytics.md)
 
 Create a diagnostic setting using the Common Diagnostic Settings page:
-![](./media/create-log-analytics-workspace-03.jpg)
-
-![](./media/create-log-analytics-workspace-04.jpg)
-
-![](./media/create-log-analytics-workspace-05.jpg)
+![](./media/create-diagnostic-settings-01.jpg)
+Configure "Send to Log Analytics" and check for all the available logs 
+and metrics:
+![](./media/create-diagnostic-settings-02.jpg)
+Diagnostic Settings should look like this:
+![](./media/create-diagnostic-settings-03.jpg)
 
 You can then view logs using Kusto queires in the logs blade of your Azure Spring Cloud instance:
 ![](./media/view-logs-in-log-analytics-workspace.jpg)
@@ -400,12 +408,8 @@ automatically detect performance anomalies. It includes powerful analytics tools
 help you diagnose issues and to understand what users actually do with your app. It is designed to 
 help you continuously improve performance and usability.
 
-Create an Application Insights instance:
-![](./media/create-application-insights-01.jpg)
-
-![](./media/create-application-insights-02.jpg)
-
-![](./media/create-application-insights-03.jpg)
+If you do not have an instance of Application Insights, see
+ [how to create Application Insights](./docs/create-application-insights.md).
 
 Enable distributed tracing for your micro service apps by using the Distributed Tracing blade in 
 your Azure Spring Cloud instance:
@@ -475,9 +479,13 @@ app lifecycle or monitoring or troubleshooting or etc.
 
 ## Resources
 
-- To be supplied
-- To be supplied
-- To be supplied
+- [Azure Spring Cloud](https://azure.microsoft.com/en-us/services/spring-cloud/)
+- [Azure Spring Cloud docs](https://docs.microsoft.com/en-us/azure/java/)
+- [Kusto Query Language](https://docs.microsoft.com/en-us/azure/kusto/query/)
+- [Triage Microservice Applications using Application Map](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map)
+- [Azure for Java Cloud Developers](https://docs.microsoft.com/en-us/azure/java/)
+- [Spring Cloud Azure](https://cloud.spring.io/spring-cloud-azure/)
+- [Spring Cloud](https://spring.io/projects/spring-cloud)
 - ...
 
 ## Contributing
