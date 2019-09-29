@@ -479,9 +479,13 @@ app lifecycle or monitoring or troubleshooting or etc.
 
 ## Resources
 
-- To be supplied
-- To be supplied
+- [Azure Spring Cloud](https://azure.microsoft.com/en-us/services/spring-cloud/)
+- [Azure Spring Cloud docs](https://docs.microsoft.com/en-us/azure/java/)
+- [Kusto Query Language](https://docs.microsoft.com/en-us/azure/kusto/query/)
 - [Triage Microservice Applications using Application Map](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map)
+- [Azure for Java Cloud Developers](https://docs.microsoft.com/en-us/azure/java/)
+- [Spring Cloud Azure](https://cloud.spring.io/spring-cloud-azure/)
+- [Spring Cloud](https://spring.io/projects/spring-cloud)
 - ...
 
 ## Contributing
