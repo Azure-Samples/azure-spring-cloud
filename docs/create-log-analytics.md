@@ -7,9 +7,9 @@ in Azure.
 
 Open the Azure Portal and start:
 
-![](./media/create-log-analytics-workspace-01.jpg)
+![](../media/create-log-analytics-workspace-01.jpg)
 
-![](./media/create-log-analytics-workspace-02.jpg)
+![](../media/create-log-analytics-workspace-02.jpg)
 
 ## Resources
 

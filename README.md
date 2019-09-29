@@ -369,9 +369,10 @@ see [how to create a Log Analytics Workspace](./docs/create-log-analytics.md)
 
 Create a diagnostic setting using the Common Diagnostic Settings page:
 ![](./media/create-diagnostic-settings-01.jpg)
-
+Configure "Send to Log Analytics" and check for all the available logs 
+and metrics:
 ![](./media/create-diagnostic-settings-02.jpg)
-
+Diagnostic Settings should look like this:
 ![](./media/create-diagnostic-settings-03.jpg)
 
 You can then view logs using Kusto queires in the logs blade of your Azure Spring Cloud instance:
