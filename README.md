@@ -147,8 +147,7 @@ Then, export these environment variables from the `
 azure-spring-cloud/piggymetrics` directory:
 
 ```bash
-pwd
-/Users/selvasingh/GitHub/selvasingh/azure-spring-cloud/piggymetrics
+cd piggymetrics
 
 source .scripts/setup-env-variables-azure.sh
 ```
@@ -336,7 +335,7 @@ for example:
 ## Bind micro service apps to Azure Cosmos DB - MongoDB
 
 You can bind micro service apps to any Azure data, cache, messaging or directory service. 
-For Piggymetrics, you can bind a micro service app to a Cosmos DB Mongo DB instance using Azure CLI:
+For Piggymetrics, you can bind a micro service app to a Cosmos DB - Mongo DB instance using Azure CLI:
 ```bash
 az spring-cloud app binding cosmos add \
     --app account-service \
@@ -428,14 +427,14 @@ You can also view the performance and call drill downs in the App Insights view:
 
 Let's make some visual changes to the app:
 ```bash
-cd gateway/src/main/resources/static/images
+pushd gateway/src/main/resources/static/images
 
 # Change the icon
 mv userpic.jpg userpic-old.jpg
 mv userpic-new.jpg userpic.jpg
 
 # Move to project directory
-cd ../../../../../..
+popd
 
 # Rebuild for the cloud in the project directory
 mvn clean package -DskipTests -Denv=cloud
