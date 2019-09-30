@@ -319,6 +319,9 @@ az spring-cloud app deploy --name notification-service \
           RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
 -->
 
+Open Azure Portal and you can see the three microservice application deployed:
+![](./media/piggymetrics-on-azure.jpg)
+
 Open the Piggymetrics landing page by using the `gateway` app public uri, 
 for example: 
 
@@ -335,7 +338,7 @@ for example:
 You can bind micro service apps to any Azure data, cache, messaging or directory service. 
 For Piggymetrics, you can bind a micro service app to a Cosmos DB Mongo DB instance using Azure CLI:
 ```bash
-az az spring-cloud app binding cosmos add \
+az spring-cloud app binding cosmos add \
     --app account-service \
     --name mongodb \
     --api-type mongo \
