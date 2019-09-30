@@ -61,10 +61,8 @@ open http://localhost:8888/notification-service/profile/development
 ![](../media/spring-cloud-config-server-running-locally.jpg)
 
 You may also try:
-open http://localhost:8888/auth-service/profile
-
 ```bash
-
+open http://localhost:8888/auth-service/profile
 ```
 
 ## Start Spring Cloud Service Registry
