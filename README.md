@@ -237,10 +237,11 @@ reaching the Piggymetrics app, for example, see the value of "url" below:
 # Create 2 more apps
 az spring-cloud app create --name account-service --instance-count 1
 az spring-cloud app create --name auth-service --instance-count 1
-```
-<!--
+
+# Create another 2 apps
 az spring-cloud app create --name statistics-service --instance-count 1
-az spring-cloud app create --name notification-service --instance-count 1-->
+az spring-cloud app create --name notification-service --instance-count 1
+```
 
 ### Deploy Spring Cloud micro service apps
 Build Spring Cloud micro service apps for cloud:
@@ -295,9 +296,7 @@ az spring-cloud app deploy --name auth-service \
     --jar-path ${AUTH_SERVICE_JAR} \
     --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI} MONGODB_DATABASE=${MONGODB_DATABASE} \
           MONGODB_URI=${MONGODB_URI}
-```
-
-<!--
+          
 # Deploy statistics-service app
 az spring-cloud app deploy --name statistics-service \
     --jar-path ${STATISTICS_SERVICE_JAR} \
@@ -308,6 +307,7 @@ az spring-cloud app deploy --name statistics-service \
           RABBITMQ_USERNAME=${RABBITMQ_USERNAME} \
           RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
 
+# Deploy notification-service app
 az spring-cloud app deploy --name notification-service \
     --jar-path ${NOTIFICATION_SERVICE_JAR} \
     --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI} MONGODB_DATABASE=${MONGODB_DATABASE} \
@@ -316,7 +316,7 @@ az spring-cloud app deploy --name notification-service \
           RABBITMQ_PORT=${RABBITMQ_PORT} \
           RABBITMQ_USERNAME=${RABBITMQ_USERNAME} \
           RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
--->
+```
 
 Open Azure Portal and you can see the three microservice application deployed:
 ![](./media/piggymetrics-on-azure.jpg)
