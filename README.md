@@ -31,6 +31,7 @@ This guide walks you through how to deploy and manage Spring Cloud micro service
 - Resources
 
 -->
+![](./media/azure-spring-cloud-large.png)
 
 ## What will you experience
 
