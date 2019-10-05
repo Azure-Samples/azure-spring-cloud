@@ -155,7 +155,11 @@ source .scripts/setup-env-variables-azure.sh
 
 Create an Azure Spring Cloud service instance using Azure CLI:
 ```bash
-# Create
+# Create a Resource Group, if you have not created one
+az group create --name ${RESOURCE_GROUP} \
+    --location ${REGION}
+    
+# Create Azure Spring Cloud
 az spring-cloud create --name ${SPRING_CLOUD_SERVICE} \
     --resource-group ${RESOURCE_GROUP} \
     --location ${REGION}
@@ -352,6 +356,13 @@ the Azure Portal, see:
 
 ## Troubleshooting micro service apps in Azure Spring Cloud
 
+With out-of-the-box support for aggregating logs, metrics, and 
+distributed app traces into Azure Monitor, you can easily visualize 
+how your applications are performing, detect and diagnose issues 
+across microservice applications and their dependencies, drill 
+into monitoring data for troubleshooting and gain better 
+understanding of what end-users do with your apps.
+
 ### Debug in development machine
 You can run Spring Cloud Config, Spring Cloud Service Registry, 
 Spring Cloud Gateway and other Spring Cloud components on their dev machine. 
@@ -463,6 +474,9 @@ az spring-cloud app set-deployment \
 Open the Piggymetrics landing page by using the `gateway` app public uri, you should now see the new icon 
 for example:
 ![](./media/green-deployment.jpg)
+
+In the Azure portal, you can see how the green deployment became effective:
+![](./media/blue-green-deployment.jpg)
 
 ## Scale out micro service apps in Azure Spring Cloud
 
