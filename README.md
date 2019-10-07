@@ -347,7 +347,7 @@ az spring-cloud app binding cosmos add \
     --name mongodb \
     --api-type mongo \
     --resource-id ${MONGODB_RESOURCE_ID} \
-    --database-name ${MONGODB_DATBASE}
+    --database-name ${MONGODB_DATABASE}
 ```
 
 Also, you can bind micro service apps to any Azure data, cache, messaging or directory service using
