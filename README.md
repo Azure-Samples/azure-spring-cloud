@@ -182,10 +182,9 @@ az configure --defaults \
 
 ### Load Spring Cloud Config Server
 
-Right now, the Piggymetrics config repo is a private repo in the Microsoft GitHub Organization. 
-To allow the Config Server in Azure Spring Cloud service, you have to provide a GitHub user 
-name and personal access token in the 
-`azure-spring-cloud/piggymetrics/application.yml` file.
+A Piggymetrics config repo is in the Microsoft GitHub Organization. 
+`application.yml` file in the `Piggymetrics` directory carries coordinates
+for this repo.
 
 ```yaml
 # Contents of application.yml
@@ -195,16 +194,9 @@ spring:
       server:
         git:
           uri: https://github.com/microsoft/piggymetrics-config.git
-          username: INSERT-your-github-user-name
-          password: INSERT-your-github-personal-token-with-access-to-private-repos
 ```
 
-You can get a personal token by going to `http://github.com/` and selecting
-your profile icon `==>` Settings `==>` Developer settings `==>` Personal access tokens.
-
-![](./media/generate-personal-access-token.jpg)
-
-You can load config from a GitHub repo:
+You can load config from this GitHub repo:
 ```bash
 az spring-cloud config-server set \
     --config-file application.yml \
