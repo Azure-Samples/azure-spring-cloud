@@ -283,13 +283,12 @@ You can deploy Spring Cloud micro service apps to Azure:
 ```bash
 # Deploy gateway app
 az spring-cloud app deploy --name gateway \
-    --jar-path ${GATEWAY_JAR} \
-    --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI}
+    --jar-path ${GATEWAY_JAR}
 
 # Deploy account-service app
 az spring-cloud app deploy --name account-service \
     --jar-path ${ACCOUNT_SERVICE_JAR} \
-    --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI} MONGODB_DATABASE=${MONGODB_DATABASE} \
+    --env MONGODB_DATABASE=${MONGODB_DATABASE} \
           MONGODB_URI=${MONGODB_URI} \
           RABBITMQ_HOST=${RABBITMQ_HOST} \
           RABBITMQ_PORT=${RABBITMQ_PORT} \
@@ -299,13 +298,13 @@ az spring-cloud app deploy --name account-service \
 # Deploy auth-service app
 az spring-cloud app deploy --name auth-service \
     --jar-path ${AUTH_SERVICE_JAR} \
-    --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI} MONGODB_DATABASE=${MONGODB_DATABASE} \
+    --env MONGODB_DATABASE=${MONGODB_DATABASE} \
           MONGODB_URI=${MONGODB_URI}
           
 # Deploy statistics-service app
 az spring-cloud app deploy --name statistics-service \
     --jar-path ${STATISTICS_SERVICE_JAR} \
-    --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI} MONGODB_DATABASE=${MONGODB_DATABASE} \
+    --env MONGODB_DATABASE=${MONGODB_DATABASE} \
           MONGODB_URI=${MONGODB_URI} \
           RABBITMQ_HOST=${RABBITMQ_HOST} \
           RABBITMQ_PORT=${RABBITMQ_PORT} \
@@ -315,7 +314,7 @@ az spring-cloud app deploy --name statistics-service \
 # Deploy notification-service app
 az spring-cloud app deploy --name notification-service \
     --jar-path ${NOTIFICATION_SERVICE_JAR} \
-    --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI} MONGODB_DATABASE=${MONGODB_DATABASE} \
+    --env MONGODB_DATABASE=${MONGODB_DATABASE} \
           MONGODB_URI=${MONGODB_URI} \
           RABBITMQ_HOST=${RABBITMQ_HOST} \
           RABBITMQ_PORT=${RABBITMQ_PORT} \
@@ -455,8 +454,7 @@ mvn clean package -DskipTests -Denv=cloud
 ### Create a green deployment
 ```bash
 az spring-cloud app deployment create --name green --app gateway \
-    --jar-path ${GATEWAY_JAR} \
-        --env CONFIG_SERVER_URI=${CONFIG_SERVER_URI}
+    --jar-path ${GATEWAY_JAR}
 ```
 
 ### List deployments and verify that there are two
