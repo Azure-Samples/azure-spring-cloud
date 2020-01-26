@@ -110,8 +110,7 @@ You can use multiple console terminals and start micro service apps - see
 az login
 
 # Install Azure Spring Cloud CLI extension
-az extension add -y \
-    --source https://github.com/VSChina/azure-cli-extensions/releases/download/0.4/spring_cloud-0.4.0-py2.py3-none-any.whl
+az extension add spring-cloud
 ```
 
 ### Create Azure Spring Cloud
@@ -361,9 +360,14 @@ You can attach debuggers to Spring Cloud micro service apps and step through the
 look at logs and metrics. Use Java Flight Recorder, etc.
 
 ### Stream logs from micro service apps in cloud to development machines
-Soon, you will be able to stream logs from an app to your development machine using Azure CLI, like:
+You can stream logs from an app to your development machine using Azure CLI, like:
 ```bash
-$ az spring-cloud app logs --name ${APP_NAME}
+az spring-cloud app log tail --name gateway -f
+az spring-cloud app log tail --name account-service -f
+az spring-cloud app log tail --name auth-service -f
+az spring-cloud app log tail --name notification-service -f
+az spring-cloud app log tail --name statistics-service -f
+
 ```
 
 ### Use aggregated logs and metrics in Azure Log Analytics
