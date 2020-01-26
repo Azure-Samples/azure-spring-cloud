@@ -360,7 +360,7 @@ You can attach debuggers to Spring Cloud micro service apps and step through the
 look at logs and metrics. Use Java Flight Recorder, etc.
 
 ### Stream logs from micro service apps in cloud to development machines
-Soon, you can stream logs from an app to your development machine using Azure CLI, like:
+You can stream logs from an app to your development machine using Azure CLI, like:
 ```bash
 az spring-cloud app log tail --name gateway -f
 az spring-cloud app log tail --name account-service -f
