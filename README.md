@@ -479,9 +479,9 @@ You can easily scale out micro service apps in Azure Spring Cloud:
 az spring-cloud app scale --name gateway --instance-count 4
 ```
 
-## Notes
+## Registry and Config Service Notes
 
-Registry and Config apps shouldn't be deployed as Piggymetrics will not work properly if you deploy your own Config and Eureka Discovery servers.
+Registry and Config apps shouldn't be deployed as Piggymetrics will not work properly if you deploy those Config and Eureka Discovery servers.
 There will be serviceId conflict because Azure provides own Config and Registry services.
 see 
 https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-service-registration
