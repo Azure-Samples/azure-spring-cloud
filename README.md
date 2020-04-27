@@ -362,11 +362,11 @@ look at logs and metrics. Use Java Flight Recorder, etc.
 ### Stream logs from micro service apps in cloud to development machines
 You can stream logs from an app to your development machine using Azure CLI, like:
 ```bash
-az spring-cloud app log tail --name gateway -f
-az spring-cloud app log tail --name account-service -f
-az spring-cloud app log tail --name auth-service -f
-az spring-cloud app log tail --name notification-service -f
-az spring-cloud app log tail --name statistics-service -f
+az spring-cloud app logs --name gateway -f
+az spring-cloud app logs --name account-service -f
+az spring-cloud app logs --name auth-service -f
+az spring-cloud app logs --name notification-service -f
+az spring-cloud app logs --name statistics-service -f
 
 ```
 
