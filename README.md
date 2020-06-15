@@ -479,6 +479,13 @@ You can easily scale out micro service apps in Azure Spring Cloud:
 az spring-cloud app scale --name gateway --instance-count 4
 ```
 
+## Spring Cloud Service Registry and Spring Cloud Config Server Notes
+
+Service Registry and Config Server apps should not be deployed as Piggymetrics will not work properly if you deploy those apps. Because, there will be serviceId conflict as Azure provides its own fully managed [Spring Cloud Service Registry and Spring Cloud Config Server services](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-service-registration). 
+
+To use own Eurek Discovery server (including Eureka UI) you should deploy Dockerised app to Azure see
+[https://github.com/azure-samples/java-on-aks](https://github.com/azure-samples/java-on-aks).
+
 ## Congratulations
 
 Congratulations!! 
